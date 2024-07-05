@@ -6,7 +6,7 @@
           return [];
         }
         function check(left,right){
-          if ((s[left]==="0"&&left!=right)||Number.parseInt(s.slice(left,right+1))>255) {
+          if (left!=right&&(s[left]==="0"||Number.parseInt(s.slice(left,right+1))>255)) {
             return false;
           }
           return true;
@@ -18,7 +18,7 @@
             res.push(tmp.slice().join("."));
             return;
           }
-          for (let index = starIndex; index < starIndex+4&&tmp.length<4; index++) {
+          for (let index = starIndex; index < starIndex+3&&tmp.length<4; index++) {
             if(!check(starIndex,index)){
               continue;
             }
